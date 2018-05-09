@@ -158,3 +158,57 @@ div.clear {
 	margin-bottom:0px;
 	line-height:1.1;
 }
+
+/*
+* 「部品たち」 比較用テーブルフォーマット
+*/
+/* 部品一覧 */
+div.parts_table {
+    clear: both;
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: left;
+	overflow: hidden;	
+}
+
+div.parts_table table {
+	table-layout: fixed;	
+	border: "0";
+	padding: 3%;
+}
+
+.parts_fig {
+	width: 50%;
+}
+
+.parts_description {
+	width: 50%;
+}
+
+div.parts_table img {
+	width: 100%;
+}
+
+/* 部品取り付け比較 */
+div.parts_armed table {
+	table-layout: fixed;	
+	border: "0";
+	padding: 3%;
+}
+
+.parts_description {
+	width: 45%;
+}
+
+.parts_side {
+	width: 13.5%;
+}
+
+.parts_top {
+	width: 40%;
+}
+
+div.parts_armed img {
+	width: 100%;
+}
+
