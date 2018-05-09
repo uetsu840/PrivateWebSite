@@ -1,0 +1,160 @@
+* {
+	background-color: rgb(245, 245, 245);
+	box-sizing: border-box;
+}
+
+* {
+	margin-top: 10px;
+	font-size: 17px;
+}
+
+body {
+    -webkit-text-size-adjust: 100%;
+}
+
+h1 {
+	text-align: center;
+	font-size:40px;
+}
+
+p {
+	font-size:17px;
+	color: black;
+}
+
+#wrapper {
+	width: 800px;
+}
+
+#header {
+	width: 100%;
+}
+
+#detail_body {
+	width: 100%;
+}
+
+#diary_body {
+	width: 100%;
+}
+
+#footer {
+	width: 100%;	
+}
+
+div.page_title {
+	text-align: center;
+	width: 100%;
+}
+
+div.diary_returnto_top {
+	clear: both;
+	text-align: right;
+	margin-top: 20px;
+	width: 100%;
+}
+
+div.left_img {
+	float: left;
+	vertical-align: top;
+	max-width:60%
+}
+
+div.left_img img {
+	padding-left: 15px;
+	padding-right: 15px;
+	max-width:100%
+}
+
+div.right_img {
+	float: right;
+	vertical-align: top;
+	max-width:60%
+}
+
+div.right_img img {
+	padding-left: 15px;
+	padding-right: 15px;
+	max-width: 100%;
+}
+
+div.large_img {
+	max-width: 100%;
+	vertical-align: top;
+}
+
+div.large_img img {
+	padding-left: 15px;
+	padding-right: 15px;
+	max-width: 100%;
+}
+
+div.two_column_img {
+	float: left;
+	max-width:50%;
+}
+
+div.three_column_img {
+	float: left;
+	max-width:33%;
+}
+
+div.section{
+	clear: both;
+	text-align: left;
+	overflow: hidden;
+}
+
+div.section h2 {
+	background-color:lightgrey ;
+	text-align: left;
+	font-size: 20px;
+}
+
+div.diary_section {
+	clear: both;
+	margin-top: 20px;
+	width: 100%;
+}
+
+div.diary_section h2 {
+	background-color:lightgrey ;
+	text-align: center;
+	font-size: 20px;	
+}
+
+div.topic{
+    clear: both;
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: left;
+	overflow: hidden;
+}
+
+div.topic h3{
+	font-size:20px;
+}
+
+div.general_description {
+	clear: both;
+	text-align: left;
+	font-size: 15px;
+}
+
+div.photo_description {
+	padding-top: 20px;
+	text-align: left;
+	font-size: 15px;
+}
+
+div.clear {
+	clear: both;
+}
+
+#detail_body ul li {
+	padding-top:0px;
+	padding-bottom:0px;
+	margin-top:0px;
+	margin-bottom:0px;
+	line-height:1.1;
+}

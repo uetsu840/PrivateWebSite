@@ -1,0 +1,429 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=x-sjis">
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<title>Nゲージの自動信号システム(閉塞信号機)</title>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<h1 class="page_title">Nゲージの自動信号システム(閉塞信号機)</h1>
+		</div>
+
+		<div id="detail_body">
+			<div class="section">
+				<div class="topic">
+					<div class="general_description">
+						トミックス、KATOとも点灯する色灯式信号機は発売されていますが、いずれもタイマ式。
+						<br /> 変わる速度が結構早いうえ、前の区間に列車が徐行していても色が変わってしまいます。
+						<br /> 自動閉塞で複数の信号機が連動して変わるのがやりたくて、システムを自作してみました。
+						<br />
+						<br /> まずは連動する閉塞信号機から。
+						<br />
+					</div>
+				</div>
+			</div>
+			<div class="section">
+				<h2>システム全体</h2>
+				<div class="topic">
+					<div class="general_description">
+						<p>
+							在線検出+制御+信号制御 です。 制御はパソコン上で動くソフトウェア(ソフトウェアPLC)でやりました。
+							<br /> 信号機間の連動はプログラムで制御されているので、信号機の種類の変更(3現示→4現示)や、中継信号機の追加も簡単です(たぶん)。
+							<br /> ポイントの制御も可能なシステムになってるので、今は閉塞信号機のみのシステムですが やれば場内信号機、ポイント、出発信号機などの連動/連鎖もできるはず。
+							<br />
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="general_description">
+						<p>
+							動作はこんな様子。
+							<br/> なんのことはない、普通の自動閉塞の動作です。
+							<br/> このエンドレスは4閉塞区間。当然ながら、誤動作しない限り毎回動きは全く同じになります…。
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="left_img">
+						<img src="signal_action_frame0.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>
+							初期状態の進行現示。
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="left_img">
+						<img src="signal_action_frame1.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>
+							列車が閉塞区間に進入すると、停止(赤)になります。
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="left_img">
+						<img src="signal_action_frame2.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>
+							完全に区間内に入りました。
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="left_img">
+						<img src="signal_action_frame3.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>
+							列車が次の閉塞区間に進入します。
+							<br/> 次の信号機の現示も停止(赤)になりますが、まだ列車は前の閉塞区間にも掛かっているので 前の信号機の現示も停止(赤)のまま。
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="left_img">
+						<img src="signal_action_frame4.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>
+							列車が前の閉塞区間を抜け、完全に次の閉塞区間に入ります。
+							<br/> 前の信号機の現示は注意(橙)に。
+							<br/>
+							<br/> 余談ながら、実物だとこの距離なら閉塞区間が短いので本来は前の信号機は 警戒(橙-橙)または停止(赤)を現示すべきだったと思うのですが…そこは説明用ということで。
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="left_img">
+						<img src="signal_action_frame5.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>
+							さらに列車が進み、次の信号機の現示が注意(橙)に。
+							<br/> 同時に、前の信号機の現示は進行(緑)に変わります。この一瞬が見たくて、こんだけ作ったわけです…。
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="left_img">
+						<img src="signal_action_frame6.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>
+							さらに列車が進み、初期状態に。
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="section">
+				<h2>在線検知</h2>
+				<div class="topic">
+					<div class="general_description">
+						<p>
+							ギャップにより閉塞区間を設定し、閉塞区間ごとに給電の電圧降下を検出しています。
+							<br /> 給電の電圧降下は、ダイオードにより作り出した電圧降下をフォトカプラで受けてます。
+							<br /> 他の方式として光電センサによる検出や検出用の短小区間を作る方式などがありますが、 どうしても連続検知にしたくてこの方式を選択しました。
+							<br /> 給電の電圧降下を検出する方式のデメリットとして給電を小分けにやらなければいけない点があるのですが、 検出回路が給電側にまとめられるので、それほどでもありません。
+							<br /> ただ、後述しますがPWM式の制御と相性が悪く、どちらかというとこのデメリットの方が大きいです。
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="right_img">
+						<img src="TrainDetectCircuit.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>
+							回路です。
+							<br /> ダイオードは1Aくらいいける整流用のもの。
+							<br /> フォトカプラは双方向用便利です。4回路入りを使ってますが、あんまし意味なかったかも。
+							<br />
+							<br /> デジタル入力の入力抵抗は4.3K。
+							<br/> 当初、フォトカプラから直接駆動していたのですがちょっと駆動しきれなかったようで不安定でした。
+							<br /> 駆動用にトランジスタを追加しています。
+							<br />
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="right_img">
+						<img src="dector_cb_omote.jpg" valign="bottom">
+						<br />
+						<img src="dector_cb_ura.jpg" valign="bottom">
+						<br />
+					</div>
+					<div class="photo_description">
+						<p>
+							基板です。
+							<br /> 在線検出信号はPLCのデジタル入力に入れるので、MILコネクタで受けてから中継しています。
+							<br />
+							<br /> 左側がPLCへの中継基板、右側は在線検出回路で4回路入りです。
+							<br /> (すいません、上の回路図と左右反対です…)
+							<br /> 在線検出回路の下側が空いているのは、将来信号機と連動させてギャブコントロールをするためのリレー配置用です。 その日はくるのか…
+							<br />
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="general_description">
+						<p>
+							この回路でLEDのヘッドライト・テールライトもちゃんと検出します。
+							<br /> まぁ近頃の車両でヘッドライトないのもないでしょうから…。消灯したければダミー抵抗を載せておけばよいです。
+							<br />
+							<br /> が、この回路の問題が。
+							<br/> トミックス常点灯システムなど、PWM式のコントローラと相性が悪いのです。
+							<br /> 検出はするのですが、車両側のLEDが逆方向も点灯してしまうのです。
+							<br />
+							<br /> 少なくともトミックスのコントローラは、OFF時にも電源線を0Vにドライブしているようなのですが、 モータの容量成分で逆起電力が発生して検出回路分の逆電圧がOFF時に車両側にかかってしまい、LEDが点灯しているようです。
+							<br />
+							<br /> 防ごうと思うと進行方向を判別して検出回路を短絡することになりそうですが、回路が大規模になりそうで…、いまのところ KATOのトランジスタ制御式パワーユニット限定です。
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="right_img">
+						<img src="TrainDetectCircuit_v2.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>
+							というわけでPWM対応版を作ってみました。
+							<br />
+							<br /> 電圧降下が小さくなればいいわけですが、そのままだとフォトカプラが駆動できないので 普通にオペアンプで差動増幅。
+							<br /> 電流検出はショットキーバリアダイオードでやりました。ただの抵抗でもよいかもしれません。
+							<br /> 複数のパワーユニットから駆動することを考えつつ、回路ごとに電源は絶縁してます。 絶縁電源は秋月で500円/回路くらいでした。
+							<br /> +24V→±15Vも品ぞろえとしてはあるようなのですが、5Vからのものしか安くなかったので一度降圧コンバータで受けてます。 降圧コンバータは全回路共通。絶縁電源は閉塞区間ごとです。
+							<br />
+							<br /> PWMなので出力側の平滑化が要りそうですが、なくても行けてました。
+							<br /> あと、この回路だと出力側のダーリントンは要らない気もするのですが、これは流用の都合です。
+							<br />
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="section">
+				<h2>信号機の制御</h2>
+				<div class="topic">
+					<div class="right_img">
+						<img src="LedOutputCircuit.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>
+							信号機の制御は、オープンコレクタでLEDを制御するだけなのでごく簡単。
+							<br /> 電球っぽくふわっと点灯・ふわっと消灯するような回路に将来的にはしたいのですが、 外付けトランジスタとでかめのコンデンサが要りそうで、意外と面倒なのね…。
+							<br />
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="right_img">
+						<img src="LedOutputCB.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>
+							基板です。
+							<br /> ただコネクタを中継するだけです。
+							<br /> 電流制限抵抗を信号機側につけるか基板側につけるか悩んだのですが、LEDの個体差の調整が必要だったり、 中継信号機をやるときには抵抗値も変わるでしょうから、信号機側にしました。
+							<br />
+							<br /> 緑だけ電流に対して輝度が高いので抵抗大きくしましたが、まだ明るいようで要調整。
+							<br />
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="section">
+				<h2>信号機</h2>
+				<div class="topic">
+					<div class="right_img">
+						<img src="ThreeStateSignal_2.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>
+							そんで信号機。
+							<br />
+							<br /> まぁ予想通り、これが一番苦労するのですが。
+							<br /> GMの色灯式信号機にLED埋め込んであっさり仕上げようと思ってたのですが、プラの柱を折ってしまい…
+							<br /> 柱はエコーモデル製φ1.2/1.0の精密真鍮パイプに交換、信号板をちょっと前に出してホンモノっぽく。
+							<br /> LEDにφ0.8のポリウレタン電線をはんだ付け、調子に乗って配線はパイプの中を通しました。
+							<br />
+							<br /> ありえない(これでは点検できません…)方向についてる点検台は思い切り穴を開けて通してしまいました。
+							<br /> 4現示タイプとか、場内信号機で信号柱に複数の信号がついてるやつとか、やりたいです。
+							<br />
+							<br /> ちなみに第1作は赤と緑の位置を間違えて作り直し。 これは2作目です。
+							<br />
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="left_img">
+						<img src="ThreeStateSignal_ura.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>
+							レンズは瞬間接着剤で。裏側をパテで埋めて光漏れ対策してます。
+							<br /> まぁタマ切れしたら信号機ごと交換でしょう…。
+							<br />
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="right_img">
+						<img src="FourStateSignal_SlowdownType.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>
+							こちらは4灯型(減速現示タイプ)です。
+							<br /> コンクリート製信号柱+無塗装の点検台にしてみました。
+							<br />
+							<br /> 3灯型は信号中を鋼製にしたのですが、国鉄は1958年以降はコンクリートタイプになったそうで。
+							<br /> そんでここんとこずっと信号機の柱ばっかり見てたのですが、(←変態…)
+							<br /> 地元東海道本線はコンクリートに混じって鋼製の白色柱も結構ありました。
+							<br /> 自動信号化の時期が早かったからでしょうかね。
+							<br />
+							<br /> ちなみに阪急は鋼製の白色柱で統一されてました。
+							<br /> 京阪とかも白で、私鉄は鋼製が多いようですね。
+							<br />
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="section">
+				<h2>デジタル入出力</h2>
+				<div class="topic">
+					<div class="photo_description">
+						<p>
+							パソコンに在線信号を伝達、パソコンからの現示の指令で信号機を駆動するためのIFです。
+							<br /> 簡単さ優先で、FA用の部品を使いました。産業用NWのEtherCATです。
+							<br /> オムロン製、NXシリーズです。カプラ+入力32点+出力32点で6万円なり。以後は32点の増設ごとに1万5千円くらい。
+							<br /> 32点で信号機8基が制御できるので、トミックスの自動信号機と比べれば…。
+							<br /> ちなみにコスト優先やらRaspberryPIをModbusTCPスレーブにして使うのも、いいかもしれません。
+							<br />
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="large_img">
+						<img src="EtherCatIO.jpg" valign="bottom">
+					</div>
+					<div class="general_description">
+						<p>
+							左からEtherCATカプラ、出力32点、入力32点。
+							<br /> 入力と出力のコネクタ形状が全く同じで、一度間違いました…。出力に過電流保護ついててよかった…。
+							<br />
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="section">
+				<h2>プログラム</h2>
+				<div class="topic">
+					<div class="photo_description">
+						<p>
+							パソコン上で信号を制御するプログラムです。
+							<br /> こういうときには組み込みC言語…が一般的なのでしょうが、PLCでやってみました。
+							<br /> 実物も実際にリレーシーケンスで動いてるわけだし、排他とシーケンスの塊りなのでまさにうってつけです。
+							<br />
+							<br /> とはいえFA用のシーケンサはあり得ない値段がするので、IOでいっぱいいっぱい。
+							<br /> ソフトウェアPLC(
+							<a href="https://www.codesys.com/">Codesys</a>)を使用しました。
+							<br /> 有料ソフトウェアなのです、評価版はエディタ制限なし、制御部(Codesys Runtime)も2時間でシャットダウンするだけで機能制限なしの大盤振る舞い。
+							<br /> 鉄道模型で使う分には全く問題ありません。
+							<br />
+							<br /> EtherCATマスタで使うにはiniファイルを1箇所いじってEtherCATマスタを起動するようにする必要があり、そこだけプチはまり。
+							<br />
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="large_img">
+						<img src="softplc_display.jpg" valign="bottom">
+					</div>
+					<div class="general_description">
+						<p>
+							これはモニタ画面です。
+							<br /> 信号機の現示をデータ型で独自定義してるんですが、ちゃんとモニタで見えてちょっと感動。
+							<br />
+							<br /> プログラムの構成ですが、
+							<br/> 入力の検出用にファンクションブロックを一つ。中でONディレイ、OFFディレイをかけてます。
+							<br /> これでノイズ除去するとともに、列車が区間に入ってからちょっと遅れて信号が変わる感じを再現。
+							<br />
+							<br /> あとは1閉塞区間で1つのファンクションブロック。
+							<br/> 在線検出情報と、次の区間の信号現示を入力として、その区間の信号現示を出力にしてます。
+							<br /> 面倒なので直接出力信号に受けてしまいました。
+							<br />
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="general_description">
+						<p>
+							つくったプロジェクトは
+							<a href="SignalSystem.projectarchive">こちら</a>。 4閉塞区間用ですが、増やすのは簡単にしてます。
+							<br /> なんか自分の名前とか入ってそうなので、そのうち消します…
+							<br />
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="general_description">
+						<p>
+							さっきまではノートパソコン上のランタイムでやってたのですが、妻がパソコン使うと言ったら信号機はシステムダウン。
+							<br /> というのはさておき、システムの再起動も結構面倒で…
+							<br />
+							<br /> で出ましたRaspberry Pi。
+							<br/> こちらもCodeys Storeからダウンロードできます。機能制限なしで、2時間で自動シャットダウンしますが今度こそ電源再投入でいいわけで。
+							<br />
+							<br /> Youtubeのチュートリアル通りにやったらびっくりするほどあっさり立ち上がりました。
+							<br/> EtherCATマスタのはまりポイントもなし。
+							<br />
+						</p>
+					</div>
+					<div class="large_img">
+						<img src="CodesysRaspPi_System.jpg" valign="bottom">
+					</div>
+				</div>
+				<div class="topic">
+					<div class="general_description">
+						<p>
+							あ、プロジェクトのほうは全部ST言語化してたり。
+							<br /> LDって見やすいんですけど、ちょっと変更しようとすると面倒で…
+							<br />
+						</p>
+					</div>
+					<div class="large_img">
+						<img src="CodesysRaspPiDisplay.jpg" valign="bottom">
+					</div>
+				</div>
+			</div>
+			<div class="section">
+				<div class="topic">
+					<div class="photo_description">
+						<p>
+							30年くらい前、KATOがまだ固定式線路だった時代、色灯式自動信号システムを発売してました。
+							<br /> マグネットを磁気検出素子で検出する方式、列車の進行とともに現示が変わり、さらにATC(自動減速/停止)までついてました。
+							<br /> あまりの配線の多さで固定式線路・レイアウト前提。おそらく当時も、今も、日本のユーザには受け入れられないのでしょうが、改めて考えるとすごいです。
+							<br /> ショールーム(今のホビセン)で動いているのを一度見た気がするのですが、中は74のICでできてたんでしょうかね。
+							<br />
+							<br /> さて、次はポイント制御とARC(自動進路構成)あたりを狙ってるんですが…。
+							<br />
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<hr>
+			<p>
+				<a href="../../index.html">トップへ戻る</a>
+			</p>
+		</div>
+	</div>
+</body>
+		
+</html>
