@@ -4,12 +4,11 @@
 }
 
 * {
-	margin-top: 10px;
-	font-size: 17px;
+	font-size: 20px;
 }
 
 body {
-    -webkit-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
 }
 
 h1 {
@@ -18,12 +17,13 @@ h1 {
 }
 
 p {
-	font-size:17px;
 	color: black;
 }
 
 #wrapper {
-	width: 800px;
+	width: auto;
+	min-width: 600px;
+	max-width: 1200px;
 }
 
 #header {
@@ -61,6 +61,7 @@ div.left_img {
 }
 
 div.left_img img {
+	padding-top: 10px;
 	padding-left: 15px;
 	padding-right: 15px;
 	max-width:100%
@@ -73,6 +74,7 @@ div.right_img {
 }
 
 div.right_img img {
+	padding-top: 10px;
 	padding-left: 15px;
 	padding-right: 15px;
 	max-width: 100%;
@@ -84,6 +86,7 @@ div.large_img {
 }
 
 div.large_img img {
+	padding-top: 10px;
 	padding-left: 15px;
 	padding-right: 15px;
 	max-width: 100%;
@@ -107,8 +110,10 @@ div.section{
 
 div.section h2 {
 	background-color:lightgrey ;
+	padding-top: 2px;
+	padding-left: 10%;
 	text-align: left;
-	font-size: 20px;
+	font-size: 25px;
 }
 
 div.diary_section {
@@ -119,12 +124,14 @@ div.diary_section {
 
 div.diary_section h2 {
 	background-color:lightgrey ;
+	padding-top: 2px;
 	text-align: center;
-	font-size: 20px;	
+	font-size: 25px;	
 }
 
 div.topic{
-    clear: both;
+	clear: both;
+	padding-top: 20px;
     padding-right: 20px;
     padding-left: 20px;
     text-align: left;
@@ -135,16 +142,31 @@ div.topic h3{
 	font-size:20px;
 }
 
+div.model_list {
+	clear: both;
+	padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: left;
+	overflow: hidden;	
+}
+
+div.model_lilst h3 {
+	font-size:20px;
+}
+
+div.model_list img {
+	width: 100%
+}
+
 div.general_description {
 	clear: both;
 	text-align: left;
-	font-size: 15px;
 }
 
 div.photo_description {
 	padding-top: 20px;
 	text-align: left;
-	font-size: 15px;
 }
 
 div.clear {
@@ -188,6 +210,39 @@ div.parts_table table {
 div.parts_table img {
 	width: 100%;
 }
+
+div.parts_table2p {
+    clear: both;
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: left;
+	overflow: hidden;	
+}
+
+div.parts_table2p table {
+	table-layout: fixed;	
+	border: "0";
+	padding: 3%;
+}
+
+.parts_fig {
+	vertical-align: top;
+	width: 25%;
+}
+
+.parts_description {
+	width: 50%;
+}
+
+div.parts_table2p img {
+	width: 100%;
+}
+
+div.parts_table2p h3 {
+	font-size:25px;
+}
+
+
 
 /* •”•iŽæ‚è•t‚¯”äŠr */
 div.parts_armed table {
