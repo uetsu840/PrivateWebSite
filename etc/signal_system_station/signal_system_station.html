@@ -1,0 +1,159 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=x-sjis">
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<title>Nゲージの自動信号システム(駅)</title>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<h1 class="page_title">Nゲージの自動信号システム(駅)</h1>
+		</div>
+
+		<div id="detail_body">
+			<div class="section">
+				<div class="topic">
+					<div class="general_description">
+						<p>
+							閉塞信号機に続き、駅の信号制御を始めました。
+							制御盤から場内信号機、出発信号機を制御します。
+						</p>						
+					</div>
+				</div>
+			</div>
+			<div class="section">
+				<h2>システム全体</h2>
+				<div class="topic">
+					<div class="left_img">
+						<img src="StationSignalControlSystem.jpg">
+					</div>
+					<div class="photo_description">
+						<p>
+							場内信号機と出発信号機は制御盤からの制御になります。
+							<br /> 制御盤はタッチパネル(パソコン)で電子的に作りました。
+							ボードとスイッチでつくってもよいのですが、固定式レイアウトは持ってないので駅の配線も変わりますし、これならつくりかえられます。
+							タッチパネルの制御盤はパソコン上のWebアプリっていうちょっといっちゃってる構成。
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="general_description">
+						<p>
+							アプリから1秒間隔でAWSからステータスを取得し、ポイントの開通方向と信号の状態を更新しています。<br/>
+							レバーを操作すると制御情報をAWSに送信します。 <br>
+							ステータス、制御情報はAWS IoTのDeviceShadowを介してラズパイとの間で同期されています。
+						</p>
+						<p>
+							ラズパイの上で動作するCodesysから信号、ポイントは制御されており、インタロックはデバイス側でとっています。
+							<br/> AWS IoTの Device Shadow から取得した制御信号でデバイスを制御、ステータスをAWSに返しています。
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="section">
+				<h2>制御盤</h2>
+				<div class="topic">
+					<div class="right_img">
+						<img src="ControlPanel_1.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>	
+							AWSと通信するWebアプリです。Angularで作りました。
+							<br/> レバー、信号ともにSVGでお手製。
+							<br/> 閉塞区間の在線情報も出るようにしたいのですが、まだです。
+							<br/> 駅名は実在の駅名が出ちゃってますが実物とは全く関係がないので気にしないよう。
+						</p>
+
+						<p>
+							なんとこれで、スマホやタブレットからでも制御可能、
+							世界中のどこからでも遠隔制御できてしまいます。
+							まだユーザ認証してないので誰でも制御できて、危険なことこの上ないですが…。
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="section">
+				<h2>ポイントの制御</h2>
+				<div class="topic">
+					<div class="left_img">
+						<img src="SwitchControlCircuit.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>
+							ポイントの制御回路です。
+							出力のOFF→ON,ON→OFFでそれぞれポイントの駆動回路にパルスで電流を流す必要があります。
+							Webサイトで紹介されている、スイッチを使用した手動の回路のスイッチをリレーで置き換えた構成としました。
+							出力のON/OFFに応じてリレーが回路を切り換え、回路が切り換わると電解コンデンサの充電/放電電流が
+							ポイントのコイルを通って流れます。
+						</p>
+						<p>
+							PLCを使っているので出力回路で直接パルスを作る方法も思いつきましたが、
+							プログラムをミスするとコイルが焼けそうなのでやめました…
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="right_img">
+						<img src="PointControlCircuitBoard_Face.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>
+							ポイントの制御基板。リレーと電解コンが並びます。まだ2回路。	
+							<br/>電解コンの容量は2200μF~4700μF程度がよいようですが、連続稼働もしませんし、4700μFとして動作の確実性をとりました。
+						</p>
+						<p>
+							ちなみに最初、間違って駆動電圧を24Vにしてたのですがびっくりするほど豪快に動作しました…
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="right_img">
+						<img src="PointControlCircuitBoard_Back.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>
+							背面です。
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="section">
+				<h2>場内信号機</h2>
+				<div class="topic">
+					<div class="left_img">
+						<img src="arrival_signal_making1.jpg" valign="bottom">
+						<img src="arrival_signal_making2.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>
+							これがやりたくて駅を作っているという、2進路の場内信号機。
+							まだできてないのでメイキングです。	
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="right_img">
+						<img src="arrival_signal_parts.jpg" valign="bottom">
+					</div>
+					<div class="photo_description">
+						<p>
+							支柱はエコーモデルφ1.2×0.8の真鍮パイプ、そこから信号板にφ0.6で腕を立てて、信号板をつけます。
+							信号板はGMの3灯式信号機から改造中。
+							これから塗装→LED取り付け→組み立て。梯子と点検台もつくらないといけません。先は長い…
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<hr>
+			<p>
+				<a href="../../index.html">トップへ戻る</a>
+			</p>
+		</div>
+	</div>
+</body>
+		
+</html>

@@ -4,11 +4,12 @@
 }
 
 * {
-	font-size: 20px;
+	font-size: 17px;
+	font-family: sans-serif; 
 }
 
 body {
-	-webkit-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 130%;
 }
 
 h1 {
@@ -27,6 +28,15 @@ p {
 }
 
 #header {
+	width: 100%;
+}
+
+#category_title {
+	text-align: center;
+	width: 100%;
+}
+
+#category_item_list {
 	width: 100%;
 }
 
@@ -182,6 +192,38 @@ div.clear {
 }
 
 /*
+*  詳細インデックスページ フォーマット
+*/
+#category_item_list table {
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%
+}
+
+#category_item_list.item_title_photo {
+	width: 150px;
+}
+
+#category_item_list.item_caption {
+	padding: 10px;
+}
+
+#category_item_list h5 {
+	font-size: 20px;
+	font-weight: bold; 
+}
+
+#category_item_list .item_link {
+	text-align: right;
+}
+
+#category_title img {
+	max-width: 100%
+}
+
+
+/*
 * 「部品たち」 比較用テーブルフォーマット
 */
 /* 部品一覧 */
@@ -266,4 +308,6 @@ div.parts_armed table {
 div.parts_armed img {
 	width: 100%;
 }
+
+
 
