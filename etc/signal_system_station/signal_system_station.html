@@ -27,7 +27,7 @@
 				<h2>システム全体</h2>
 				<div class="topic">
 					<div class="left_img">
-						<img src="StationSignalControlSystem.jpg">
+						<img src="StationSignalControlSystem_AWS.jpg">
 					</div>
 					<div class="photo_description">
 						<p>
@@ -48,6 +48,21 @@
 						<p>
 							ラズパイの上で動作するCodesysから信号、ポイントは制御されており、インタロックはデバイス側でとっています。
 							<br/> AWS IoTの Device Shadow から取得した制御信号でデバイスを制御、ステータスをAWSに返しています。
+						</p>
+					</div>
+				</div>
+				<div class="topic">
+					<div class="left_img">
+						<img src="StationSignalControlSystem_Device.jpg">
+					</div>
+					<div class="photo_description">
+						<p>
+							デバイス側です。Codesys と AWS Iot は直接やりとりできないので(たぶん)、一度AwsIotDeviceSDKで受けてから
+							Codesys のリンクプロトコルに変換してやり取りしています。
+							<br /> CodesysのリンクプロトコルはUDPのブロードキャストでできていて、ポート番号でプロファイルを識別する
+							仕組みになっているようです。本来はCodesysのソフトPLC間のリンク用なのですが、
+							同じデータ構造をつくれば外部から送受信ができます。
+							頑張って認識するようUDPのパケットを組み立てました。
 						</p>
 					</div>
 				</div>
