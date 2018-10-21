@@ -1,0 +1,112 @@
+/*
+* 「部品たち」 比較用テーブルフォーマット
+*/
+/* 部品一覧 */
+div.parts_table {
+    clear: both;
+    margin: 3% 5%;
+    text-align: left;
+	overflow: hidden;	
+}
+
+div.parts_table table {
+	table-layout: fixed;	
+    border: "0";
+}
+
+div.parts_table table caption {
+    font-size: 20px;
+    padding-left: 10%;
+    font-weight: bold;
+    text-align: left;
+}
+
+.parts_table2p h3 {
+	margin-top: 10px;
+	margin-bottom: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.parts_fig {
+	width: 50%;
+}
+
+.parts_description {
+	width: 50%;
+}
+
+div.parts_table img {
+	width: 100%;
+}
+
+
+/* 2分割 */
+div.parts_table2p {
+    clear: both;
+    margin: 3% 5%;
+    text-align: left;
+	overflow: hidden;	
+}
+
+div.parts_table2p table {
+	table-layout: fixed;	
+	border: "0";
+	padding: 3%;
+}
+
+div.parts_table2p table caption {
+    font-size: 20px;
+    padding-left: 10%;
+    font-weight: bold;
+    text-align: left;
+}
+
+div.parts_table2p img {
+	width: 100%;
+}
+
+.parts_fig {
+	vertical-align: top;
+	width: 25%;
+}
+
+.parts_description {
+    vertical-align: top;
+    padding: 2%;
+	width: 50%;
+}
+
+
+/* 部品取り付け比較 */
+div.parts_armed table {
+    clear: both;
+    margin: 3% 5%;
+    table-layout: fixed;	
+}
+
+div.parts_armed table caption {
+    font-size: 20px;
+    padding-left: 10%;
+    font-weight: bold;
+    text-align: left;
+}
+
+div.parts_armed .parts_description {
+	width: 40%;
+}
+
+div.parts_armed .parts_side {
+	width: 13.5%;
+}
+
+div.parts_armed .parts_top {
+	width: 40%;
+}
+
+div.parts_armed img {
+	width: 100%;
+}
+
+
+

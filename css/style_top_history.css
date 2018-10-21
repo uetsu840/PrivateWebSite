@@ -1,0 +1,115 @@
+/**
+*   トップページ・履歴 
+*/
+#site_top_header {
+    width: 100%;
+}
+
+#site_top_header .site_title h1 {
+    text-align: center;
+	font-size:40px;
+}
+
+#site_top_header .site_author {
+    text-align: right;
+    font-size: 20px;
+}
+
+#site_top_caption {
+    max-width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#site_top_caption .right_photo {
+    float: left;
+    width: 10%;
+}
+
+#site_top_caption .caption_body {
+    float: left;
+    width: 80%;
+}
+
+#site_top_caption .left_photo {
+    float: left;
+    width: 10%;
+}
+
+#site_top_navigation {
+    margin-top: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+#site_top_navigation .caption {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#site_top_navigation h2 {
+    text-align: center;
+    font-weight: normal;
+}
+
+#site_top_navigation table {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#site_top_navigation  table tr td:nth-child(1) {
+    width:300px;
+}
+
+#site_top_navigation  table tr td:nth-child(2) {
+    width:500px;
+}
+
+#update_history {
+    margin-top: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+#update_history .caption {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#update_history table {
+	width: 800px;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+#update_history table tr td {
+    padding: 5px;
+}
+
+
+#update_history  table tr td:nth-child(1) {
+    width:200px;
+}
+
+#update_history  table tr td:nth-child(2) {
+    width:600px;
+}
+
+#site_top_footer {
+    width: 100%;
+    padding-left: 30%;
+}
+
+#site_top_footer .caution_title {
+    font-size: 15px;
+}
+
+#site_top_footer .caution_body {
+    font-size: 12px;
+}
+
+#site_top_footer .access_counter {
+    text-align: right;
+}
