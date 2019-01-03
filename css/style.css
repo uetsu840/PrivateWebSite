@@ -103,11 +103,13 @@ div.large_img img {
 }
 
 div.two_column_img img {
+    padding: 5px;
 	float: left;
 	max-width:50%;
 }
 
 div.three_column_img img {
+    padding: 5px;
 	float: left;
 	max-width:33%;
 }
