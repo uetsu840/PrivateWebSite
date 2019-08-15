@@ -1,0 +1,701 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=x-sjis">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/style_procon.css" />
+    <title>競技プログラミング</title>
+</head>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <h1 class="page_title">競技プログラミング</h1>
+        </div>
+        <div id="detail_body">
+            <div class="section">
+                <div class="topic">
+                    <div class="general_description">
+                        <p>
+                            趣味かどうかというと微妙なんですが、最近頑張ってる競技プログラミングです。
+                        </p>
+                        <p>
+                            <a href="https://atcoder.jp/">AtCoder</a>をメインに活動していて、後で自分で引っ張ってくる用に記録を始めました。<br />
+                            カテゴリと簡単な解き方を書いているので、性質上、多少のネタバレはご容赦ください。<br />
+                        </p>
+                        <p>
+                            どうでもいいんですが、mathjax で tex の数式を埋め込んだらかっこよくてはまってます。。。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <h2>基本問題</h2>
+                ソートなど、各種STL使い方の基本問題。
+                <div class="procon_table">
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc128/tasks/abc128_b">ABC 128 B - Guidebook
+                                </a>
+                            </td>
+                            <td>
+                                A
+                            </td>
+                            <td>
+                                スコアの高い順(降順)、文字列の辞書順にソートする。<br>
+                            </td>
+                            <td>
+                                pair にするとスコアは昇順、文字列辞書順になってしまうので、operator を定義してやる。<br>
+                                スコアに -1 を掛けてやってもできるけれど、仕事でやったら殺されそうな実装。
+                                youtube の解説ではtupleを使ってましたね。
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="section">
+                <h2>貪欲法</h2>
+                比較的直観的ですね。priority_queue は、使うのを思いつくかどうか。
+                <div class="procon_table">
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc137/tasks/abc137_d">ABC 137 D - Summer Vacation
+                                </a>
+                            </td>
+                            <td>
+                                B
+                            </td>
+                            <td>
+                                費用が払われるまでにタイムラグがある日雇いバイトで最大の賃金を得る。<br>
+                            </td>
+                            <td>
+                                直観通りに貪欲法。<br>
+                                あとは priority_queue に食わせるデータをどう作るか。
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="section">
+                <h2>全探索</h2>
+                実装力を問う問題。入門編といった雰囲気です。
+                <div class="procon_table">
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc129/tasks/abc129_d">ABC 128 C - Switches
+                                </a>
+                            </td>
+                            <td>
+                                B
+                            </td>
+                            <td>
+                                N個の電球とM個のスイッチがあり、条件を満たすと電球が光る。光る電球の個数の最大値を求める。<br>
+                            </td>
+                            <td>
+                                スイッチの状態をひたすら全探索。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc129/tasks/abc129_d">ABC 129 D - Lamp
+                                </a>
+                            </td>
+                            <td>
+                                B
+                            </td>
+                            <td>
+                                X軸、Y軸に光が伸びるランプが照らす領域の最大値を求める。<br>
+                            </td>
+                            <td>
+                                障害物をリストにするところまで頑張って、ランプの位置は全探索。<br>
+                                また、障害物をリストにしなくても、障害物からの距離をセルに対して数えるともっと綺麗に解ける。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc128/tasks/abc128_e">ABC 128 E - Roadwork
+                                </a>
+                            </td>
+                            <td>
+                                D
+                            </td>
+                            <td>
+                                時間、場所により工事中の道をどこまで進めるか。<br>
+                            </td>
+                            <td>
+                                「イベントソート」という想定解法だが、要するにひたすら地道に実装…。
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="section">
+                <h2>BFS</h2>
+                主に最短経路問題。
+                <div class="procon_table">
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc007/tasks/abc007_3">ABC 007 C - 幅優先探索
+                                </a>
+                            </td>
+                            <td>
+                                A
+                            </td>
+                            <td>
+                                迷路の最短経路問題。丁寧なガイダンス付き。
+                                <br>
+                            </td>
+                            <td>
+                                ただのBFSなので地道に実装する。こういうのを久しぶりに見ると安心する…
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="??https://atcoder.jp/contests/abc088/tasks/abc088_d">ABC 088 D - Grid
+                                    Repainting
+                                </a>
+                            </td>
+                            <td>
+                                B
+                            </td>
+                            <td>
+                                ゴールにたどり着ける条件を維持して、迷路を塗りつぶせるセル数の最大値を求める。
+                                <br>
+                            </td>
+                            <td>
+                                問題文の理解が大変だがただの最短経路問題に落ちる。あとは頑張って実装。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc132/tasks/abc132_e">ABC 132 E - Hopscotch Addict
+                                </a>
+                            </td>
+                            <td>
+                                D
+                            </td>
+                            <td>
+                                有向グラフ上を1回で3マス進む。ゴールにたどり着く最短の手数を求める。
+                                <br>
+                            </td>
+                            <td>
+                                0マス目・1マス目・2マス目と状態を持ち、幅優先探索で最小距離を求める。
+                                グラフを3枚持ってるのと同じ。<br>
+                                最初、3マス先にある頂点に全部グラフを張ろうとしたらO(N^2) となりTLEしまくりだった…
+                                これを本番で時間内に考えつける日は来るのだろうか…。
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>DP</h2>
+                <div class="procon_table">
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc129/tasks/abc129_c">ABC129C - Typical Stairs
+                                </a>
+                            </td>
+                            <td>
+                                A
+                            </td>
+                            <td>
+                                <p>
+                                    たまに床が抜けているN段の階段の登り方を求める。
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    1次元DP。基本はフィボナッチ数列なのだけれど、遷移条件に例外が混ざっている。
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc021/tasks/abc021_d">ABC021 D - 多重ループ
+                                </a>
+                            </td>
+                            <td>
+                                B
+                            </td>
+                            <td>
+                                <p>
+                                    \(1 \leqq a_1 \leqq a_2 \leqq ... \leqq a_n\) なる組み合わせの数を求める。 </p>
+                            </td>
+                            <td>
+                                <p>
+                                    DPでちまちま求めることもできる。<br>
+                                    が、実は重複組み合わせそのもの。これが重複組み合わせに見えるかどうかが勝負。
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc110/tasks/abc110_d">ABC110 D - Factorization
+                                </a>
+                            </td>
+                            <td>
+                                B
+                            </td>
+                            <td>
+                                <p>
+                                    \(a_1 \times a_2\ \times ... \times a_n = M\) となる組み合わせの数を求める。 <br>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    素因数分解して分割数。<br>
+                                    分割数は、\(_{n+m-1}C_{m-1}\) でも、<br>
+                                    DP(\(dp[i+1][j] = dp[i][j] + dp[i+1][j-1]\))でも求めることができる。
+                                    両方試したら今回の条件だとDPのほうが10倍くらい速かった。
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc054/tasks/abc054_d">ABC054 D - Mixing Experiment
+                                </a>
+                            </td>
+                            <td>
+                                B
+                            </td>
+                            <td>
+                                <p>
+                                    N種類の薬品を混ぜて、比率を A:B にする。
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    2次元ナップサック問題。最初、平方分割かと思って時間かかりました。
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc129/tasks/abc129_e">ABC129 E - Sum Equals
+                                    Xor
+                                </a>
+                            </td>
+                            <td>
+                                C
+                            </td>
+                            <td>
+                                <p>
+                                    A + B = A xor B となる A, B の組み合わせを求める。
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    桁DP。
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/dwacon2018-prelims/tasks/dwacon2018_prelims_c">第4回
+                                    ドワンゴからの挑戦状 予選 C - Kill/Death
+                                </a>
+                            </td>
+                            <td>
+                                D
+                            </td>
+                            <td>
+                                <p>
+                                    分割数の変形版。
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    n個の複数郡の分割数を求めるのだが、配るDPでロジックは統一して解ける。
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc015/tasks/abc015_4">ABC015 D - 高橋くんの苦悩
+                                </a>
+                            </td>
+                            <td>
+                                B
+                            </td>
+                            <td>
+                                <p>
+                                    画面に貼り付けるスクリーンショットの価値を最大化する。
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    ナップサック問題。
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc006/tasks/abc006_4">ABC006 D - トランプ挿入ソート
+                                </a>
+                            </td>
+                            <td>
+                                B
+                            </td>
+                            <td>
+                                <p>
+                                    トランプから1枚を動かしてソートをするときの処理回数。
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    実はLISを求めればよい。気づくほうが難しいが、気づけば簡単系。
+                                </p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/diverta2019-2/tasks/diverta2019_2_d">diverta 2019
+                                    Programming Contest D - Squirrel Merchant
+                                </a>
+                            </td>
+                            <td>
+                                C
+                            </td>
+                            <td>
+                                <p>
+                                    リスの高橋君がドングリ交換所で金銀銅とドングリを交換してドングリを増やす。
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    間の交換所で一度全部ドングリにしてしまえばよいという発想の転換がポイント。
+                                    DPは基本的なナップザック問題なのだが、ナップサック問題のi番目の商品がドングリになってるので、
+                                    一目ではわからないと思う。(解説見てからも理解するまでに時間かかった…)
+                                </p>
+                            </td>
+                        </tr>
+
+
+                    </table>
+                </div>
+            </div>
+            <div class="section">
+                <h2>ベルマンフォード法(BellmanFord)</h2>
+                負のコストを含むグラフの最短路。
+                <div class="procon_table">
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc137/tasks/abc137_e">ABC 137 E - Coins Respawn
+                                </a>
+                            </td>
+                            <td>
+                                C
+                            </td>
+                            <td>
+                                経路上でコインを得ることができるが、移動ごとにペナルティがあるゲームの最大得点を求める。
+                                <br>
+                            </td>
+                            <td>
+                                ベルマンフォード法で負閉路を検出するのだが、
+                                実はそれだけだと嘘解法になる(経路上に、小さな負閉路と大きな正のパスが並列であるといつまでたっても収束しない)。
+                                事前にBFS/DFSで到達不可能な閉路を処理しておく必要がある。<br>
+                                テストが甘く、頂点数分だけ余計にベルマンフォード法の計算を回すと通る。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc061/tasks/abc061_d">ABC 061 D - Score Attack
+                                </a>
+                            </td>
+                            <td>
+                                B
+                            </td>
+                            <td>
+                                パスに正/負の得点があるグラフでの最大得点。
+                                <br>
+                            </td>
+                            <td>
+                                ABC137Eとほぼ同じ。嘘解法で検査が通るのも同じ…。
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Union-Find木</h2>
+                <div class="procon_table">
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc049/tasks/arc065_b">ABC 049 D - 連結 /
+                                    Connectivity
+                                </a>
+                            </td>
+                            <td>
+                                B
+                            </td>
+                            <td>
+                                <p>
+                                    鉄道と道路の両方で連結されている都市の数を求める。
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    union-find を2つつくってから、それをくっつければよいのだが、くっつけるときにそのままやるとO(N^2)
+                                    になってしまうので工夫する。<br>
+                                    union-find の親を属性として持たせ、属性についてソートしてから重複する要素数を数える(解説見てやった)。
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc120/tasks/abc120_d">ABC 120 D - Decayed Bridges
+                                </a>
+                            </td>
+                            <td>
+                                B
+                            </td>
+                            <td>
+                                <p>
+                                    橋が順に崩落してゆくとき、相互に行き来できなくなった島の組み合わせの数を求める。<br>
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    逆向きで考えて、橋が順にできてゆくとしたときに union-find で連結してゆく発想でやる。
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc126/tasks/abc126_e">ABC 126 E - 1 or 2
+                                </a>
+                            </td>
+                            <td>
+                                C
+                            </td>
+                            <td>
+                                <p>
+                                    1 または 2 が書かれているカードについて、\(A_{Xi} + A_{Yi} + Zi\)の合計値の情報がわかっているとき、
+                                    何枚めくったら全部がわかるか。
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    情報が連鎖するので、Union-Findでつないでいって、最終的にできた木の数を数える。
+                                    実際には、結合した回数を数えると楽だった。
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/arc036/tasks/arc036_d">ARC 036 D - 偶数メートル
+                                </a>
+                            </td>
+                            <td>
+                                D
+                            </td>
+                            <td>
+                                <p>
+                                    偶数メートルでたどりつけるかどうかを判定する。
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    奇数+奇数 = 偶数になるので、Union-Find木を2つつくるのが想定解法。
+                                    自分はUnion-Find木を変形して、「奇数でいける木」の情報を持って解いた。
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Binary Indexed Tree</h2>
+                <div class="procon_table">
+                    <table>
+                        <tr>
+                            <td>
+                                Codeforces<br>
+                                <a href="https://codeforces.com/contest/1185/problem/C2">Round #568(Div.2) Exam in BerSU
+                                    (hard version)</a>
+                            </td>
+                            <td>
+                                D
+                            </td>
+                            <td>
+                                <p>
+                                    N人が順に合計M時間のテストを受ける。
+                                    それぞれ合格するのに要する所要時間が決まっている。落ちると時間は0。
+                                    j人目がテストに通るためにそれまでの何人が落ちればよいかの最小値を求める。
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    合格者の最大数を求める。<br>
+                                    j-1人目までを、昇順に所要時間を並べた時、所要時間の累積和が\(M-a_j\) 以下になるような最大の人数を求める。<br>
+                                    順に更新されてゆくためまず所要時間を全体で昇順ソート場所を決めてからBITに入れてゆき、
+                                    BITの中で累積和を2分探索して境界値を求める。<br>
+                                    もうひとつBITをつくり、こちらには人数を入れておくとその境界値に対応する人数が求まる。<br>
+                                    BITと累積和の2分探索は相性が良いのかもしれない。
+                                </p>
+                                <p>
+                                    解き方はすぐに思いついたが、実装が…。Codeforcesはテストパターンが公開されているのでデバッグできたが、
+                                    AtCoderだったら諦めてたかも。
+                                </p>
+                                <p>
+                                    と思ってEditorial見たら、実は点数が0点～100点しかないので、
+                                    点数ごとに学生を数えて累積和にしたら一瞬でできた気が…(BIT関係ない)
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="section">
+                <h2>ネットワークフロー</h2>
+                最大流、最小費用流、最小カットなど。
+                <div class="procon_table">
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/arc074/tasks/arc074_d">ARC074 F - Lotus Leaves
+                                </a>
+                            </td>
+                            <td>
+                                C
+                            </td>
+                            <td>
+                                スタートからゴールにカエルがたどりつけなくするための、除去すべき葉の最小数を求める。<br>
+                            </td>
+                            <td>
+                                軸を頂点、辺を葉として最小カットを求めるとものすごくすっきり解ける。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/agc034/tasks/agc034_d">AGC034 D - Manhattan Max
+                                    Matching
+                                </a>
+                            </td>
+                            <td>
+                                D
+                            </td>
+                            <td>
+                                平面上の2N個の点を、X座標、Y座標の差の絶対値が最大になるよう組み合わせる。<br>
+                            </td>
+                            <td>
+                                絶対値を、max(a-b, a+b, -a+b, -a-b) と扱うと、ネットワークフローの辺の数が削減でき最小費用流で解ける。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/arc031/tasks/arc031_4">ARC 031 D - 買い物上手
+                                </a>
+                            </td>
+                            <td>
+                                E
+                            </td>
+                            <td>
+                                アイテムを買った結果得られる経験値の、経験値/費用を最大化する。<br>
+                            </td>
+                            <td>
+                                燃やす埋める問題と2分探索の組み合わせ。
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="section">
+                <h2>パズル系</h2>
+                ソートの回数の削減、優先度付きキューの扱いなどでうまくやると解ける問題。<br>
+                競技プログラミングではこの手の発想勝負な問題が一番多く、そしてこれが一番壁…。
+                <div class="procon_table">
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/abc123/tasks/abc123_d">ABC 123 D - Cake 123
+                                </a>
+                            </td>
+                            <td>
+                                C
+                            </td>
+                            <td>
+                                <p>
+                                    \(A_X\)個、\(B_Y\)個、\(C_Z個\) のケーキからおいしさ上位順で選んだ3000個を順に出力する。全部ソートすると間に合わない。
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    ソートの対象をどう削減するか。
+                                    priority_queue を使って最小限でやることもできる。
+                                </p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/diverta2019-2/tasks/diverta2019_2_b"> diverta 2019
+                                    Programming Contest2 B - Picking Up
+                                </a>
+                            </td>
+                            <td>
+                                B
+                            </td>
+                            <td>
+                                <p>
+                                    平面上にばらまかれた点のうち、前の点からの座標オフセットが [p, q] であるものの個数が
+                                    最大となるよう [p, q] をとった時の個数を求める。
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    出題でなN数が少ないので、複数の点が直前上とか考えずに、
+                                    p, q を定めてから座標のオフセットを全部数えてしまえばよいのですが…。
+                                </p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <a href="https://atcoder.jp/contests/diverta2019-2/tasks/diverta2019_2_c"> diverta 2019
+                                    Programming Contest2 C - Successive Subtraction
+                                </a>
+                            </td>
+                            <td>
+                                B
+                            </td>
+                            <td>
+                                <p>
+                                    \(A_1, A_2,,,, A_N\) から、任意の2個の数x, yを取り出し x-y を書き込んだ時に最後に残る数の最大値。
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    少なくとも一つの数がプラス、一つの数がマイナスとなり、
+                                    ほかの数は任意の符号なのでそうなるように演算を構成する。
+                                    合計値を求めるのは簡単なのだけれど、その過程を出力されるので頑張って構成する。
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="footer">
+            <hr>
+            <p align="right">
+                <a href="../../index.html">トップへ戻る</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
