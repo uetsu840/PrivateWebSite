@@ -21,6 +21,11 @@ p {
 	color: black;
 }
 
+blockquote {
+    font-style: italic;
+    font-family:Times New Roman,"‚l‚r ‚oƒSƒVƒbƒN";
+}
+
 #wrapper {
 	width: auto;
 	min-width: 600px;

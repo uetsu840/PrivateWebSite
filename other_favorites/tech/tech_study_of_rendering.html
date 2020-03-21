@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+       <meta charset="UTF-8">
+       <link href="../../lib/marked/0.3.5/markdown7.css" rel="stylesheet"></link>
+   </head>
+    <body>
+        <div id="container">
+        </div>
+        <script src="../../lib/jquery/3.0.0-alpha1/jquery.min.js"></script>
+        <script src="../../lib/marked/0.3.5/marked.min.js"></script>
+        <script>
+function loadFile(fileName, callback){
+   httpObj = new XMLHttpRequest();
+   httpObj.open('GET', fileName+"?"+(new Date()).getTime(),true);
+   // ?以降はキャッシュされたファイルではなく、毎回読み込むためのもの
+   httpObj.send(null);
+   httpObj.onreadystatechange = function(){
+      if ( (httpObj.readyState == 4) && (httpObj.status == 200) ){
+          callback(httpObj.responseText);
+      }
+   }
+}
+
+var list = [];
+loadFile('tech_study_of_web_framework.md', function(resultText) {
+    var md = marked(resultText);
+    $("#container").append(md);
+});
+       </script>
+    </body>
+</html>
