@@ -1,4 +1,4 @@
-# Webフレームワーク
+# WebブラウザのレンダリングとAngular の change detection
 WebフレームワークとHTML 描画の仕組みの関係を研究する。
 
 ## react.js と仮想DOM

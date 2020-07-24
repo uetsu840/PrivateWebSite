@@ -1,0 +1,114 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=x-sjis">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" />
+    <title>AWS IoT と CODESYS をつなぐ</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <h1 class="page_title">AWS IoT と CODESYS をつなぐ</h1>
+        </div>
+
+        <div id="detail_body">
+            <div class="section">
+                <div class="topic">
+                    <div class="general_description">
+                        <p>
+                            IoTシステムを作ろうと思うと、エッジシステムの選択肢として出てくるのがPLC。
+                            デジタル入出力、アナログ入出力、各種アクチュエータなど実IOとの接続が容易なうえに、
+                            簡単にインタロックやシーケンス制御を書くことができます。
+                            CODESYSはいわゆる"ソフトウェアPLC"で、ラズパイやパソコンなどの上でPLCのシステムを構築できます。
+                        </p>
+                        <p>
+                            鉄道模型の駅の制御にCODESYSを使い、
+                            AWS IoTを介してWebアプリから駅を制御するシステムを構築してみました。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <h2>システムの構成</h2>
+                <div class="topic">
+                    <div class="large_img">
+                        <img src="system_map.jpg" valign="bottom">
+                    </div>
+                    <div class="general_description">
+                        <p>
+                            AWS IoTからCODESYSへ直接接続するのはちょっと面倒そうなので(MQTT使うといけるかもしれません…)、
+                            AWS IoTが提供しているpythonのドライバをパソコン上で動かしてそこからCODESYSのデータリンクの仕組みを使い
+                            データを流し込んでいます。
+                        </p>
+                    </div>
+                </div>
+                <h2>CODESYSの設定</h2>
+                <div class="topic">
+                    <div class="general_description">
+                        <p>
+                            "Network Variable" でデータリンク用のインタフェース変数を定義します。
+                            入力用変数、出力変数をそれぞれ定義します。
+                            ここにpythonからデータを読み書きします。
+                        </p>
+                        <p>
+                            "Network Variable" は複数のソフトPLC間のデータリンク用の仕組みっぽいのですが、
+                            単にUDPでパケットをやり取りしているだけですので、
+                            そとからフォーマットに従って入出力すればpythonのソケットとの間でもデータのやりとりができるわけです。
+                        </p>
+                    </div>
+                </div>
+                <div class="topic">
+                    <h3>入力</h3>
+                    <div class="general_description">
+                        <p>
+                            入力変数です。
+                        </p>
+                    </div>
+                </div>
+                <div class="topic">
+                    <h3>出力</h3>
+                    <div class="general_description">
+                        <p>
+                            入力変数です。
+                        </p>
+                    </div>
+                </div>
+                <h2>python から CODESYS のやりとり</h2>
+                <div class="topic">
+                    <h3>データフォーマット</h3>
+                    <div class="general_description">
+                        <p>
+                            データフォーマットはここににあります。
+                        </p>
+                    </div>
+                </div>
+                <h2>AWS IoTの設定</h2>
+                <div class="topic">
+                    <h3>フォーマットの定義</h3>
+                    <div class="general_description">
+                        <p>
+                            
+                        </p>
+                    </div>
+                </div>
+                <div class="topic">
+                    <h3>python のドライバ</h3>
+                    <div class="general_description">
+                        <p>
+                            
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <hr>
+            <p align="right">
+                <a href="../../index.html">トップへ戻る</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
