@@ -11,7 +11,8 @@ function loadFile(fileName, callback){
  }
  
  var list = [];
- loadFile('tech_study_of_web_framework.md', function(resultText) {
+ var src = document.getElementById( 'markdown_src' ).getAttribute( 'name' );
+ loadFile(src, function(resultText) {
      var md = marked(resultText);
      $("#container").append(md);
  });
