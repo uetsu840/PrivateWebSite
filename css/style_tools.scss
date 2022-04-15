@@ -1,0 +1,29 @@
+/*
+* 「部品たち」 比較用テーブルフォーマット
+*/
+/* 部品一覧 */
+div.tools_list {
+    clear: both;
+    text-align: left;
+	overflow: hidden;	
+
+    table {
+        table-layout: fixed;	
+        border: "0";
+        border-collapse: separate;
+        border-spacing: 10px 20px;
+
+        tr {
+            td:nth-child(1) {
+                vertical-align: top;
+                width:200px;
+            }
+            
+            td:nth-child(2) {
+                vertical-align: top;
+            }
+        }
+    }
+}
+
+
