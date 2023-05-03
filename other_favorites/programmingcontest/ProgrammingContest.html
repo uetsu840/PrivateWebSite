@@ -1,37 +1,37 @@
-<html>
+﻿<html>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=x-sjis">
     <link rel="stylesheet" type="text/css" href="../../css/style.css" />
     <link rel="stylesheet" type="text/css" href="../../css/style_procon.css" />
-    <title>���Z�v���O���~���O</title>
+    <title>競技プログラミング</title>
 </head>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
 <body>
     <div id="wrapper">
         <div id="header">
-            <h1 class="page_title">���Z�v���O���~���O</h1>
+            <h1 class="page_title">競技プログラミング</h1>
         </div>
         <div id="detail_body">
             <div class="section">
                 <div class="topic">
                     <div class="general_description">
                         <p>
-                            ����ǂ����Ƃ����Ɣ����Ȃ�ł����A�ŋߊ撣���Ă鋣�Z�v���O���~���O�ł��B
+                            趣味かどうかというと微妙なんですが、最近頑張ってる競技プログラミングです。
                         </p>
                         <p>
-                            <a href="https://atcoder.jp/">AtCoder</a>�����C���Ɋ������Ă��āA��Ŏ����ň��������Ă���p�ɋL�^���n�߂܂����B<br />
-                            �J�e�S���ƊȒP�ȉ������������Ă���̂ŁA������A�����̃l�^�o���͂��e�͂��������B<br />
+                            <a href="https://atcoder.jp/">AtCoder</a>をメインに活動していて、後で自分で引っ張ってくる用に記録を始めました。<br />
+                            カテゴリと簡単な解き方を書いているので、性質上、多少のネタバレはご容赦ください。<br />
                         </p>
                         <p>
-                            �ǂ��ł�������ł����Amathjax �� tex �̐����𖄂ߍ��񂾂炩�����悭�Ă͂܂��Ă܂��B�B�B
+                            どうでもいいんですが、mathjax で tex の数式を埋め込んだらかっこよくてはまってます。。。
                         </p>
                     </div>
                 </div>
             </div>
             <div class="section">
-                <h2>��{���</h2>
-                �\�[�g�ȂǁA�e��STL�g�����̊�{���B
+                <h2>基本問題</h2>
+                ソートなど、各種STL使い方の基本問題。
                 <div class="procon_table">
                     <table>
                         <tr>
@@ -43,20 +43,20 @@
                                 A
                             </td>
                             <td>
-                                �X�R�A�̍�����(�~��)�A������̎������Ƀ\�[�g����B<br>
+                                スコアの高い順(降順)、文字列の辞書順にソートする。<br>
                             </td>
                             <td>
-                                pair �ɂ���ƃX�R�A�͏����A�����񎫏����ɂȂ��Ă��܂��̂ŁAoperator ���`���Ă��B<br>
-                                �X�R�A�� -1 ���|���Ă���Ă��ł��邯��ǁA�d���ł������E���ꂻ���Ȏ����B
-                                youtube �̉���ł�tuple���g���Ă܂����ˁB
+                                pair にするとスコアは昇順、文字列辞書順になってしまうので、operator を定義してやる。<br>
+                                スコアに -1 を掛けてやってもできるけれど、仕事でやったら殺されそうな実装。
+                                youtube の解説ではtupleを使ってましたね。
                             </td>
                         </tr>
                     </table>
                 </div>
             </div>
             <div class="section">
-                <h2>�×~�@</h2>
-                ��r�I���ϓI�ł��ˁBpriority_queue �́A�g���̂��v�������ǂ����B
+                <h2>貪欲法</h2>
+                比較的直観的ですね。priority_queue は、使うのを思いつくかどうか。
                 <div class="procon_table">
                     <table>
                         <tr>
@@ -68,19 +68,19 @@
                                 B
                             </td>
                             <td>
-                                ��p��������܂łɃ^�C�����O��������ق��o�C�g�ōő�̒����𓾂�B<br>
+                                費用が払われるまでにタイムラグがある日雇いバイトで最大の賃金を得る。<br>
                             </td>
                             <td>
-                                ���ϒʂ���×~�@�B<br>
-                                ���Ƃ� priority_queue �ɐH�킹��f�[�^���ǂ���邩�B
+                                直観通りに貪欲法。<br>
+                                あとは priority_queue に食わせるデータをどう作るか。
                             </td>
                         </tr>
                     </table>
                 </div>
             </div>
             <div class="section">
-                <h2>�S�T��</h2>
-                �����͂�₤���B����҂Ƃ��������͋C�ł��B
+                <h2>全探索</h2>
+                実装力を問う問題。入門編といった雰囲気です。
                 <div class="procon_table">
                     <table>
                         <tr>
@@ -92,10 +92,10 @@
                                 B
                             </td>
                             <td>
-                                N�̓d����M�̃X�C�b�`������A�����𖞂����Ɠd��������B����d���̌��̍ő�l�����߂�B<br>
+                                N個の電球とM個のスイッチがあり、条件を満たすと電球が光る。光る電球の個数の最大値を求める。<br>
                             </td>
                             <td>
-                                �X�C�b�`�̏�Ԃ��Ђ�����S�T���B
+                                スイッチの状態をひたすら全探索。
                             </td>
                         </tr>
                         <tr>
@@ -107,11 +107,11 @@
                                 B
                             </td>
                             <td>
-                                X���AY���Ɍ����L�т郉���v���Ƃ炷�̈�̍ő�l�����߂�B<br>
+                                X軸、Y軸に光が伸びるランプが照らす領域の最大値を求める。<br>
                             </td>
                             <td>
-                                ��Q�������X�g�ɂ���Ƃ���܂Ŋ撣���āA�����v�̈ʒu�͑S�T���B<br>
-                                �܂��A��Q�������X�g�ɂ��Ȃ��Ă��A��Q������̋������Z���ɑ΂��Đ�����Ƃ������Y��ɉ�����B
+                                障害物をリストにするところまで頑張って、ランプの位置は全探索。<br>
+                                また、障害物をリストにしなくても、障害物からの距離をセルに対して数えるともっと綺麗に解ける。
                             </td>
                         </tr>
                         <tr>
@@ -123,10 +123,10 @@
                                 D
                             </td>
                             <td>
-                                ���ԁA�ꏊ�ɂ��H�����̓����ǂ��܂Ői�߂邩�B<br>
+                                時間、場所により工事中の道をどこまで進めるか。<br>
                             </td>
                             <td>
-                                �u�C�x���g�\�[�g�v�Ƃ����z���@�����A�v����ɂЂ�����n���Ɏ����c�B
+                                「イベントソート」という想定解法だが、要するにひたすら地道に実装…。
                             </td>
                         </tr>
                     </table>
@@ -134,23 +134,23 @@
             </div>
             <div class="section">
                 <h2>BFS</h2>
-                ��ɍŒZ�o�H���B
+                主に最短経路問題。
                 <div class="procon_table">
                     <table>
                         <tr>
                             <td>
-                                <a href="https://atcoder.jp/contests/abc007/tasks/abc007_3">ABC 007 C - ���D��T��
+                                <a href="https://atcoder.jp/contests/abc007/tasks/abc007_3">ABC 007 C - 幅優先探索
                                 </a>
                             </td>
                             <td>
                                 A
                             </td>
                             <td>
-                                ���H�̍ŒZ�o�H���B���J�ȃK�C�_���X�t���B
+                                迷路の最短経路問題。丁寧なガイダンス付き。
                                 <br>
                             </td>
                             <td>
-                                ������BFS�Ȃ̂Œn���Ɏ�������B���������̂��v���Ԃ�Ɍ���ƈ��S����c
+                                ただのBFSなので地道に実装する。こういうのを久しぶりに見ると安心する…
                             </td>
                         </tr>
                         <tr>
@@ -163,11 +163,11 @@
                                 B
                             </td>
                             <td>
-                                �S�[���ɂ��ǂ蒅����������ێ����āA���H��h��Ԃ���Z�����̍ő�l�����߂�B
+                                ゴールにたどり着ける条件を維持して、迷路を塗りつぶせるセル数の最大値を求める。
                                 <br>
                             </td>
                             <td>
-                                ��蕶�̗�������ς��������̍ŒZ�o�H���ɗ�����B���Ƃ͊撣���Ď����B
+                                問題文の理解が大変だがただの最短経路問題に落ちる。あとは頑張って実装。
                             </td>
                         </tr>
                         <tr>
@@ -179,14 +179,14 @@
                                 D
                             </td>
                             <td>
-                                �L���O���t���1���3�}�X�i�ށB�S�[���ɂ��ǂ蒅���ŒZ�̎萔�����߂�B
+                                有向グラフ上を1回で3マス進む。ゴールにたどり着く最短の手数を求める。
                                 <br>
                             </td>
                             <td>
-                                0�}�X�ځE1�}�X�ځE2�}�X�ڂƏ�Ԃ������A���D��T���ōŏ����������߂�B
-                                �O���t��3�������Ă�̂Ɠ����B<br>
-                                �ŏ��A3�}�X��ɂ��钸�_�ɑS���O���t�𒣂낤�Ƃ�����O(N^2) �ƂȂ�TLE���܂��肾�����c
-                                �����{�ԂŎ��ԓ��ɍl��������͗���̂��낤���c�B
+                                0マス目・1マス目・2マス目と状態を持ち、幅優先探索で最小距離を求める。
+                                グラフを3枚持ってるのと同じ。<br>
+                                最初、3マス先にある頂点に全部グラフを張ろうとしたらO(N^2) となりTLEしまくりだった…
+                                これを本番で時間内に考えつける日は来るのだろうか…。
                             </td>
                         </tr>
                     </table>
@@ -207,18 +207,18 @@
                             </td>
                             <td>
                                 <p>
-                                    ���܂ɏ��������Ă���N�i�̊K�i�̓o��������߂�B
+                                    たまに床が抜けているN段の階段の登り方を求める。
                                 </p>
                             </td>
                             <td>
                                 <p>
-                                    1����DP�B��{�̓t�B�{�i�b�`����Ȃ̂�����ǁA�J�ڏ����ɗ�O���������Ă���B
+                                    1次元DP。基本はフィボナッチ数列なのだけれど、遷移条件に例外が混ざっている。
                                 </p>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="https://atcoder.jp/contests/abc021/tasks/abc021_d">ABC021 D - ���d���[�v
+                                <a href="https://atcoder.jp/contests/abc021/tasks/abc021_d">ABC021 D - 多重ループ
                                 </a>
                             </td>
                             <td>
@@ -226,12 +226,12 @@
                             </td>
                             <td>
                                 <p>
-                                    \(1 \leqq a_1 \leqq a_2 \leqq ... \leqq a_n\) �Ȃ�g�ݍ��킹�̐������߂�B </p>
+                                    \(1 \leqq a_1 \leqq a_2 \leqq ... \leqq a_n\) なる組み合わせの数を求める。 </p>
                             </td>
                             <td>
                                 <p>
-                                    DP�ł��܂��܋��߂邱�Ƃ��ł���B<br>
-                                    ���A���͏d���g�ݍ��킹���̂��́B���ꂪ�d���g�ݍ��킹�Ɍ����邩�ǂ����������B
+                                    DPでちまちま求めることもできる。<br>
+                                    が、実は重複組み合わせそのもの。これが重複組み合わせに見えるかどうかが勝負。
                                 </p>
                             </td>
                         </tr>
@@ -245,15 +245,15 @@
                             </td>
                             <td>
                                 <p>
-                                    \(a_1 \times a_2\ \times ... \times a_n = M\) �ƂȂ�g�ݍ��킹�̐������߂�B <br>
+                                    \(a_1 \times a_2\ \times ... \times a_n = M\) となる組み合わせの数を求める。 <br>
                                 </p>
                             </td>
                             <td>
                                 <p>
-                                    �f�����������ĕ������B<br>
-                                    �������́A\(_{n+m-1}C_{m-1}\) �ł��A<br>
-                                    DP(\(dp[i+1][j] = dp[i][j] + dp[i+1][j-1]\))�ł����߂邱�Ƃ��ł���B
-                                    �����������獡��̏�������DP�̂ق���10�{���炢���������B
+                                    素因数分解して分割数。<br>
+                                    分割数は、\(_{n+m-1}C_{m-1}\) でも、<br>
+                                    DP(\(dp[i+1][j] = dp[i][j] + dp[i+1][j-1]\))でも求めることができる。
+                                    両方試したら今回の条件だとDPのほうが10倍くらい速かった。
                                 </p>
                             </td>
                         </tr>
@@ -267,12 +267,12 @@
                             </td>
                             <td>
                                 <p>
-                                    N��ނ̖�i�������āA�䗦�� A:B �ɂ���B
+                                    N種類の薬品を混ぜて、比率を A:B にする。
                                 </p>
                             </td>
                             <td>
                                 <p>
-                                    2�����i�b�v�T�b�N���B�ŏ��A�����������Ǝv���Ď��Ԃ�����܂����B
+                                    2次元ナップサック問題。最初、平方分割かと思って時間かかりました。
                                 </p>
                             </td>
                         </tr>
@@ -287,19 +287,19 @@
                             </td>
                             <td>
                                 <p>
-                                    A + B = A xor B �ƂȂ� A, B �̑g�ݍ��킹�����߂�B
+                                    A + B = A xor B となる A, B の組み合わせを求める。
                                 </p>
                             </td>
                             <td>
                                 <p>
-                                    ��DP�B
+                                    桁DP。
                                 </p>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="https://atcoder.jp/contests/dwacon2018-prelims/tasks/dwacon2018_prelims_c">��4��
-                                    �h�����S����̒���� �\�I C - Kill/Death
+                                <a href="https://atcoder.jp/contests/dwacon2018-prelims/tasks/dwacon2018_prelims_c">第4回
+                                    ドワンゴからの挑戦状 予選 C - Kill/Death
                                 </a>
                             </td>
                             <td>
@@ -307,18 +307,18 @@
                             </td>
                             <td>
                                 <p>
-                                    �������̕ό`�ŁB
+                                    分割数の変形版。
                                 </p>
                             </td>
                             <td>
                                 <p>
-                                    n�̕����S�̕����������߂�̂����A�z��DP�Ń��W�b�N�͓��ꂵ�ĉ�����B
+                                    n個の複数郡の分割数を求めるのだが、配るDPでロジックは統一して解ける。
                                 </p>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="https://atcoder.jp/contests/abc015/tasks/abc015_4">ABC015 D - ��������̋�Y
+                                <a href="https://atcoder.jp/contests/abc015/tasks/abc015_4">ABC015 D - 高橋くんの苦悩
                                 </a>
                             </td>
                             <td>
@@ -326,18 +326,18 @@
                             </td>
                             <td>
                                 <p>
-                                    ��ʂɓ\��t����X�N���[���V���b�g�̉��l���ő剻����B
+                                    画面に貼り付けるスクリーンショットの価値を最大化する。
                                 </p>
                             </td>
                             <td>
                                 <p>
-                                    �i�b�v�T�b�N���B
+                                    ナップサック問題。
                                 </p>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="https://atcoder.jp/contests/abc006/tasks/abc006_4">ABC006 D - �g�����v�}���\�[�g
+                                <a href="https://atcoder.jp/contests/abc006/tasks/abc006_4">ABC006 D - トランプ挿入ソート
                                 </a>
                             </td>
                             <td>
@@ -345,12 +345,12 @@
                             </td>
                             <td>
                                 <p>
-                                    �g�����v����1���𓮂����ă\�[�g������Ƃ��̏����񐔁B
+                                    トランプから1枚を動かしてソートをするときの処理回数。
                                 </p>
                             </td>
                             <td>
                                 <p>
-                                    ����LIS�����߂�΂悢�B�C�Â��ق���������A�C�Â��ΊȒP�n�B
+                                    実はLISを求めればよい。気づくほうが難しいが、気づけば簡単系。
                                 </p>
                             </td>
                         </tr>
@@ -366,14 +366,14 @@
                             </td>
                             <td>
                                 <p>
-                                    ���X�̍����N���h���O���������ŋ��⓺�ƃh���O�����������ăh���O���𑝂₷�B
+                                    リスの高橋君がドングリ交換所で金銀銅とドングリを交換してドングリを増やす。
                                 </p>
                             </td>
                             <td>
                                 <p>
-                                    �Ԃ̌������ň�x�S���h���O���ɂ��Ă��܂��΂悢�Ƃ������z�̓]�����|�C���g�B
-                                    DP�͊�{�I�ȃi�b�v�U�b�N���Ȃ̂����A�i�b�v�T�b�N����i�Ԗڂ̏��i���h���O���ɂȂ��Ă�̂ŁA
-                                    ��ڂł͂킩��Ȃ��Ǝv���B(������Ă������������܂łɎ��Ԃ��������c)
+                                    間の交換所で一度全部ドングリにしてしまえばよいという発想の転換がポイント。
+                                    DPは基本的なナップザック問題なのだが、ナップサック問題のi番目の商品がドングリになってるので、
+                                    一目ではわからないと思う。(解説見てからも理解するまでに時間かかった…)
                                 </p>
                             </td>
                         </tr>
@@ -383,8 +383,8 @@
                 </div>
             </div>
             <div class="section">
-                <h2>�x���}���t�H�[�h�@(BellmanFord)</h2>
-                ���̃R�X�g���܂ރO���t�̍ŒZ�H�B
+                <h2>ベルマンフォード法(BellmanFord)</h2>
+                負のコストを含むグラフの最短路。
                 <div class="procon_table">
                     <table>
                         <tr>
@@ -396,14 +396,14 @@
                                 C
                             </td>
                             <td>
-                                �o�H��ŃR�C���𓾂邱�Ƃ��ł��邪�A�ړ����ƂɃy�i���e�B������Q�[���̍ő哾�_�����߂�B
+                                経路上でコインを得ることができるが、移動ごとにペナルティがあるゲームの最大得点を求める。
                                 <br>
                             </td>
                             <td>
-                                �x���}���t�H�[�h�@�ŕ��H�����o����̂����A
-                                ���͂��ꂾ�����ƉR��@�ɂȂ�(�o�H��ɁA�����ȕ��H�Ƒ傫�Ȑ��̃p�X������ł���Ƃ��܂ł����Ă��������Ȃ�)�B
-                                ���O��BFS/DFS�œ��B�s�\�ȕH���������Ă����K�v������B<br>
-                                �e�X�g���Â��A���_���������]�v�Ƀx���}���t�H�[�h�@�̌v�Z���񂷂ƒʂ�B
+                                ベルマンフォード法で負閉路を検出するのだが、
+                                実はそれだけだと嘘解法になる(経路上に、小さな負閉路と大きな正のパスが並列であるといつまでたっても収束しない)。
+                                事前にBFS/DFSで到達不可能な閉路を処理しておく必要がある。<br>
+                                テストが甘く、頂点数分だけ余計にベルマンフォード法の計算を回すと通る。
                             </td>
                         </tr>
                         <tr>
@@ -415,23 +415,23 @@
                                 B
                             </td>
                             <td>
-                                �p�X�ɐ�/���̓��_������O���t�ł̍ő哾�_�B
+                                パスに正/負の得点があるグラフでの最大得点。
                                 <br>
                             </td>
                             <td>
-                                ABC137E�Ƃقړ����B�R��@�Ō������ʂ�̂������c�B
+                                ABC137Eとほぼ同じ。嘘解法で検査が通るのも同じ…。
                             </td>
                         </tr>
                     </table>
                 </div>
             </div>
             <div class="section">
-                <h2>Union-Find��</h2>
+                <h2>Union-Find木</h2>
                 <div class="procon_table">
                     <table>
                         <tr>
                             <td>
-                                <a href="https://atcoder.jp/contests/abc049/tasks/arc065_b">ABC 049 D - �A�� /
+                                <a href="https://atcoder.jp/contests/abc049/tasks/arc065_b">ABC 049 D - 連結 /
                                     Connectivity
                                 </a>
                             </td>
@@ -440,14 +440,14 @@
                             </td>
                             <td>
                                 <p>
-                                    �S���Ɠ��H�̗����ŘA������Ă���s�s�̐������߂�B
+                                    鉄道と道路の両方で連結されている都市の数を求める。
                                 </p>
                             </td>
                             <td>
                                 <p>
-                                    union-find ��2�����Ă���A�������������΂悢�̂����A��������Ƃ��ɂ��̂܂܂���O(N^2)
-                                    �ɂȂ��Ă��܂��̂ōH�v����B<br>
-                                    union-find �̐e�𑮐��Ƃ��Ď������A�����ɂ��ă\�[�g���Ă���d������v�f���𐔂���(������Ă����)�B
+                                    union-find を2つつくってから、それをくっつければよいのだが、くっつけるときにそのままやるとO(N^2)
+                                    になってしまうので工夫する。<br>
+                                    union-find の親を属性として持たせ、属性についてソートしてから重複する要素数を数える(解説見てやった)。
                                 </p>
                             </td>
                         </tr>
@@ -461,12 +461,12 @@
                             </td>
                             <td>
                                 <p>
-                                    �������ɕ������Ă䂭�Ƃ��A���݂ɍs�����ł��Ȃ��Ȃ������̑g�ݍ��킹�̐������߂�B<br>
+                                    橋が順に崩落してゆくとき、相互に行き来できなくなった島の組み合わせの数を求める。<br>
                                 </p>
                             </td>
                             <td>
                                 <p>
-                                    �t�����ōl���āA�������ɂł��Ă䂭�Ƃ����Ƃ��� union-find �ŘA�����Ă䂭���z�ł��B
+                                    逆向きで考えて、橋が順にできてゆくとしたときに union-find で連結してゆく発想でやる。
                                 </p>
                             </td>
                         </tr>
@@ -480,20 +480,20 @@
                             </td>
                             <td>
                                 <p>
-                                    1 �܂��� 2 ��������Ă���J�[�h�ɂ��āA\(A_{Xi} + A_{Yi} + Zi\)�̍��v�l�̏�񂪂킩���Ă���Ƃ��A
-                                    �����߂�������S�����킩�邩�B
+                                    1 または 2 が書かれているカードについて、\(A_{Xi} + A_{Yi} + Zi\)の合計値の情報がわかっているとき、
+                                    何枚めくったら全部がわかるか。
                                 </p>
                             </td>
                             <td>
                                 <p>
-                                    ��񂪘A������̂ŁAUnion-Find�łȂ��ł����āA�ŏI�I�ɂł����؂̐��𐔂���B
-                                    ���ۂɂ́A���������񐔂𐔂���Ɗy�������B
+                                    情報が連鎖するので、Union-Findでつないでいって、最終的にできた木の数を数える。
+                                    実際には、結合した回数を数えると楽だった。
                                 </p>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="https://atcoder.jp/contests/arc036/tasks/arc036_d">ARC 036 D - �������[�g��
+                                <a href="https://atcoder.jp/contests/arc036/tasks/arc036_d">ARC 036 D - 偶数メートル
                                 </a>
                             </td>
                             <td>
@@ -501,13 +501,13 @@
                             </td>
                             <td>
                                 <p>
-                                    �������[�g���ł��ǂ���邩�ǂ����𔻒肷��B
+                                    偶数メートルでたどりつけるかどうかを判定する。
                                 </p>
                             </td>
                             <td>
                                 <p>
-                                    �+� = �����ɂȂ�̂ŁAUnion-Find�؂�2����̂��z���@�B
-                                    ������Union-Find�؂�ό`���āA�u��ł�����؁v�̏��������ĉ������B
+                                    奇数+奇数 = 偶数になるので、Union-Find木を2つつくるのが想定解法。
+                                    自分はUnion-Find木を変形して、「奇数でいける木」の情報を持って解いた。
                                 </p>
                             </td>
                         </tr>
@@ -529,27 +529,27 @@
                             </td>
                             <td>
                                 <p>
-                                    N�l�����ɍ��vM���Ԃ̃e�X�g���󂯂�B
-                                    ���ꂼ�ꍇ�i����̂ɗv���鏊�v���Ԃ����܂��Ă���B������Ǝ��Ԃ�0�B
-                                    j�l�ڂ��e�X�g�ɒʂ邽�߂ɂ���܂ł̉��l��������΂悢���̍ŏ��l�����߂�B
+                                    N人が順に合計M時間のテストを受ける。
+                                    それぞれ合格するのに要する所要時間が決まっている。落ちると時間は0。
+                                    j人目がテストに通るためにそれまでの何人が落ちればよいかの最小値を求める。
                                 </p>
                             </td>
                             <td>
                                 <p>
-                                    ���i�҂̍ő吔�����߂�B<br>
-                                    j-1�l�ڂ܂ł��A�����ɏ��v���Ԃ���ׂ����A���v���Ԃ̗ݐϘa��\(M-a_j\) �ȉ��ɂȂ�悤�ȍő�̐l�������߂�B<br>
-                                    ���ɍX�V����Ă䂭���߂܂����v���Ԃ�S�̂ŏ����\�[�g�ꏊ�����߂Ă���BIT�ɓ���Ă䂫�A
-                                    BIT�̒��ŗݐϘa��2���T�����ċ��E�l�����߂�B<br>
-                                    �����ЂƂ�BIT������A������ɂ͐l�������Ă����Ƃ��̋��E�l�ɑΉ�����l�������܂�B<br>
-                                    BIT�ƗݐϘa��2���T���͑������ǂ��̂�������Ȃ��B
+                                    合格者の最大数を求める。<br>
+                                    j-1人目までを、昇順に所要時間を並べた時、所要時間の累積和が\(M-a_j\) 以下になるような最大の人数を求める。<br>
+                                    順に更新されてゆくためまず所要時間を全体で昇順ソート場所を決めてからBITに入れてゆき、
+                                    BITの中で累積和を2分探索して境界値を求める。<br>
+                                    もうひとつBITをつくり、こちらには人数を入れておくとその境界値に対応する人数が求まる。<br>
+                                    BITと累積和の2分探索は相性が良いのかもしれない。
                                 </p>
                                 <p>
-                                    �������͂����Ɏv���������A�������c�BCodeforces�̓e�X�g�p�^�[�������J����Ă���̂Ńf�o�b�O�ł������A
-                                    AtCoder����������߂Ă������B
+                                    解き方はすぐに思いついたが、実装が…。Codeforcesはテストパターンが公開されているのでデバッグできたが、
+                                    AtCoderだったら諦めてたかも。
                                 </p>
                                 <p>
-                                    �Ǝv����Editorial������A���͓_����0�_�`100�_�����Ȃ��̂ŁA
-                                    �_�����ƂɊw���𐔂��ėݐϘa�ɂ������u�łł����C���c(BIT�֌W�Ȃ�)
+                                    と思ってEditorial見たら、実は点数が0点～100点しかないので、
+                                    点数ごとに学生を数えて累積和にしたら一瞬でできた気が…(BIT関係ない)
                                 </p>
                             </td>
                         </tr>
@@ -557,8 +557,8 @@
                 </div>
             </div>
             <div class="section">
-                <h2>�l�b�g���[�N�t���[</h2>
-                �ő嗬�A�ŏ���p���A�ŏ��J�b�g�ȂǁB
+                <h2>ネットワークフロー</h2>
+                最大流、最小費用流、最小カットなど。
                 <div class="procon_table">
                     <table>
                         <tr>
@@ -570,10 +570,10 @@
                                 C
                             </td>
                             <td>
-                                �X�^�[�g����S�[���ɃJ�G�������ǂ���Ȃ����邽�߂́A�������ׂ��t�̍ŏ��������߂�B<br>
+                                スタートからゴールにカエルがたどりつけなくするための、除去すべき葉の最小数を求める。<br>
                             </td>
                             <td>
-                                ���𒸓_�A�ӂ�t�Ƃ��čŏ��J�b�g�����߂�Ƃ��̂������������������B
+                                軸を頂点、辺を葉として最小カットを求めるとものすごくすっきり解ける。
                             </td>
                         </tr>
                         <tr>
@@ -586,34 +586,34 @@
                                 D
                             </td>
                             <td>
-                                ���ʏ��2N�̓_���AX���W�AY���W�̍��̐�Βl���ő�ɂȂ�悤�g�ݍ��킹��B<br>
+                                平面上の2N個の点を、X座標、Y座標の差の絶対値が最大になるよう組み合わせる。<br>
                             </td>
                             <td>
-                                ��Βl���Amax(a-b, a+b, -a+b, -a-b) �ƈ����ƁA�l�b�g���[�N�t���[�̕ӂ̐����팸�ł��ŏ���p���ŉ�����B
+                                絶対値を、max(a-b, a+b, -a+b, -a-b) と扱うと、ネットワークフローの辺の数が削減でき最小費用流で解ける。
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="https://atcoder.jp/contests/arc031/tasks/arc031_4">ARC 031 D - ���������
+                                <a href="https://atcoder.jp/contests/arc031/tasks/arc031_4">ARC 031 D - 買い物上手
                                 </a>
                             </td>
                             <td>
                                 E
                             </td>
                             <td>
-                                �A�C�e���𔃂������ʓ�����o���l�́A�o���l/��p���ő剻����B<br>
+                                アイテムを買った結果得られる経験値の、経験値/費用を最大化する。<br>
                             </td>
                             <td>
-                                �R�₷���߂����2���T���̑g�ݍ��킹�B
+                                燃やす埋める問題と2分探索の組み合わせ。
                             </td>
                         </tr>
                     </table>
                 </div>
             </div>
             <div class="section">
-                <h2>�p�Y���n</h2>
-                �\�[�g�̉񐔂̍팸�A�D��x�t���L���[�̈����Ȃǂł��܂����Ɖ�������B<br>
-                ���Z�v���O���~���O�ł͂��̎�̔��z�����Ȗ�肪��ԑ����A�����Ă��ꂪ��ԕǁc�B
+                <h2>パズル系</h2>
+                ソートの回数の削減、優先度付きキューの扱いなどでうまくやると解ける問題。<br>
+                競技プログラミングではこの手の発想勝負な問題が一番多く、そしてこれが一番壁…。
                 <div class="procon_table">
                     <table>
                         <tr>
@@ -626,13 +626,13 @@
                             </td>
                             <td>
                                 <p>
-                                    \(A_X\)�A\(B_Y\)�A\(C_Z��\) �̃P�[�L���炨��������ʏ��őI��3000�����ɏo�͂���B�S���\�[�g����ƊԂɍ���Ȃ��B
+                                    \(A_X\)個、\(B_Y\)個、\(C_Z個\) のケーキからおいしさ上位順で選んだ3000個を順に出力する。全部ソートすると間に合わない。
                                 </p>
                             </td>
                             <td>
                                 <p>
-                                    �\�[�g�̑Ώۂ��ǂ��팸���邩�B
-                                    priority_queue ���g���čŏ����ł�邱�Ƃ��ł���B
+                                    ソートの対象をどう削減するか。
+                                    priority_queue を使って最小限でやることもできる。
                                 </p>
                             </td>
                         </tr>
@@ -648,14 +648,14 @@
                             </td>
                             <td>
                                 <p>
-                                    ���ʏ�ɂ΂�܂��ꂽ�_�̂����A�O�̓_����̍��W�I�t�Z�b�g�� [p, q] �ł�����̂̌���
-                                    �ő�ƂȂ�悤 [p, q] ���Ƃ������̌������߂�B
+                                    平面上にばらまかれた点のうち、前の点からの座標オフセットが [p, q] であるものの個数が
+                                    最大となるよう [p, q] をとった時の個数を求める。
                                 </p>
                             </td>
                             <td>
                                 <p>
-                                    �o��ł�N�������Ȃ��̂ŁA�����̓_�����O��Ƃ��l�����ɁA
-                                    p, q ���߂Ă�����W�̃I�t�Z�b�g��S�������Ă��܂��΂悢�̂ł����c�B
+                                    出題でなN数が少ないので、複数の点が直前上とか考えずに、
+                                    p, q を定めてから座標のオフセットを全部数えてしまえばよいのですが…。
                                 </p>
                             </td>
                         </tr>
@@ -671,14 +671,14 @@
                             </td>
                             <td>
                                 <p>
-                                    \(A_1, A_2,,,, A_N\) ����A�C�ӂ�2�̐�x, y�����o�� x-y ���������񂾎��ɍŌ�Ɏc�鐔�̍ő�l�B
+                                    \(A_1, A_2,,,, A_N\) から、任意の2個の数x, yを取り出し x-y を書き込んだ時に最後に残る数の最大値。
                                 </p>
                             </td>
                             <td>
                                 <p>
-                                    ���Ȃ��Ƃ���̐����v���X�A��̐����}�C�i�X�ƂȂ�A
-                                    �ق��̐��͔C�ӂ̕����Ȃ̂ł����Ȃ�悤�ɉ��Z���\������B
-                                    ���v�l�����߂�̂͊ȒP�Ȃ̂�����ǁA���̉ߒ����o�͂����̂Ŋ撣���č\������B
+                                    少なくとも一つの数がプラス、一つの数がマイナスとなり、
+                                    ほかの数は任意の符号なのでそうなるように演算を構成する。
+                                    合計値を求めるのは簡単なのだけれど、その過程を出力されるので頑張って構成する。
                                 </p>
                             </td>
                         </tr>
@@ -691,7 +691,7 @@
         <div id="footer">
             <hr>
             <p align="right">
-                <a href="../../index.html">�g�b�v�֖߂�</a>
+                <a href="../../index.html">トップへ戻る</a>
             </p>
         </div>
     </div>
